@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Versión de muestra: que Google no la indexe todavía. Sacar esta línea cuando sea la tienda de verdad. -->
+<meta name="robots" content="noindex">
+<title>Huelepectacular · Decants y perfumes</title>
+<meta name="description" content="Decants de 5 ml y perfumes árabes, de diseñador y nicho. Pedidos por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..600&display=swap">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="variants.css">
+<!-- EXPERIMENTAL: funciones de prueba. Para la versión final, borrar esta línea y la de lab.js al final. -->
+<link rel="stylesheet" href="lab.css">
+</head>
+<body>
+
+<div class="announce" id="announce">
+	<span>Respondo en el día. ¡Paciencia y gracias!</span>
+	<button id="announce-x" aria-label="Cerrar aviso">×</button>
+</div>
+
+<header class="top" id="top">
+	<div class="top-in">
+		<button class="brand" data-go="home" aria-label="Ir al inicio"><span class="brand-a">Huele</span><span class="brand-b">pectacular</span></button>
+		<label class="search" for="q">
+			<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+			<input id="q" type="search" placeholder="Buscar perfume, marca o nota" autocomplete="off">
+		</label>
+		<button class="icon-btn" id="info-btn" aria-label="Información de la tienda">
+			<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>
+		</button>
+		<button class="icon-btn cart-btn" id="cart-btn" aria-label="Ver mi pedido">
+			<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg>
+			<span class="count" id="cart-count">0</span>
+		</button>
+	</div>
+</header>
+<nav class="rail" id="rail" aria-label="Categorías"></nav>
+
+<main class="view" id="view"></main>
+
+<footer class="foot">
+	<div class="foot-in">
+		<div>
+			<p class="foot-brand">Huelepectacular</p>
+			<p>Decants y perfumes. Entregas en Devoto y Ramos Mejía, y envíos por Correo Argentino. Respondo en el día.</p>
+			<a class="yt-btn" href="https://www.youtube.com/@huelepectacular4212" target="_blank" rel="noopener">
+				<svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="5.5" fill="#ff0000"/><path d="M11.2 5.8 18.6 10l-7.4 4.2z" fill="#fff"/></svg>
+				<span>Ver el canal en YouTube</span>
+			</a>
+			<p class="foot-links"><button class="link" data-jump="preguntas">Preguntas frecuentes</button></p>
+			<p class="foot-sync" id="foot-sync"></p>
+		</div>
+		<div>
+			<h3>Contacto</h3>
+			<p>WhatsApp <span class="sel">+54 9 11 2520-4376</span></p>
+			<p><a href="https://instagram.com/huelepectacular" target="_blank" rel="noopener">Instagram</a></p>
+		</div>
+		<div>
+			<h3>Cómo comprar</h3>
+			<p>Pedido mínimo de $20.000. Lo cerramos por WhatsApp.</p>
+		</div>
+	</div>
+</footer>
+
+<aside class="drawer" id="drawer" hidden>
+	<button class="scrim" data-close tabindex="-1" aria-label="Cerrar pedido"></button>
+	<div class="panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+		<div class="panel-head">
+			<h2 id="drawer-title">Tu pedido</h2>
+			<button class="icon-btn" data-close aria-label="Cerrar">×</button>
+		</div>
+		<div class="panel-body" id="drawer-body"></div>
+		<div class="panel-foot" id="drawer-foot"></div>
+	</div>
+</aside>
+
+<div class="modal" id="modal" hidden>
+	<button class="scrim" data-close tabindex="-1" aria-label="Cerrar"></button>
+	<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+		<button class="icon-btn sheet-x" data-close aria-label="Cerrar">×</button>
+		<div id="modal-body"></div>
+	</div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="catalog.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script src="ui.js"></script>
+<!-- EXPERIMENTAL: borrar esta línea para la versión final (junto con la de lab.css). -->
+<script src="lab.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* ================================ EXPERIMENTAL ================================
+   Estilos de las funciones en prueba (lab.js). Para sacarlas, borrar las dos líneas
+   de lab.css y lab.js en index.html. Siguen el mismo lenguaje que el resto de la tienda.
+   ============================================================================== */
+[data-lab="off"] .lab-only, [data-lab="off"] .lab-tray { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lab-sub { font-size: .85rem; color: var(--muted); }
+
+/* ---------- Portada: ayuda para elegir ---------- */
+.lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; }
+.lab-card { display: grid; gap: 12px; align-content: start; padding: 20px; background: var(--surface); }
+.lab-card h3 { font: 800 1.9rem/.95 var(--display); font-stretch: 62%; text-transform: uppercase; }
+.lab-card p { color: var(--muted); }
+.lab-card .btn { justify-self: start; }
+.lab-similar { display: flex; gap: 8px; }
+.lab-similar input { flex: 1; min-width: 0; padding: 0 12px; border: 1px solid var(--line); background: var(--bg); font-family: var(--util); }
+.lab-similar .btn { justify-self: auto; }
+.lab-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.lab-chips .chip { font-size: .76rem; padding: 5px 10px; background: var(--bg); }
+.lab-sec .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.lab-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px 14px; margin-bottom: 16px; background: var(--surface); font-family: var(--util); font-size: .9rem; }
+.lab-banner .btn { min-height: 38px; }
+
+/* ---------- Tarjetas: favorito, reseña y "al kit" ---------- */
+.card { container-type: inline-size; }
+.lab-fav { position: absolute; z-index: 2; right: 8px; top: calc(100cqw - 46px); width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: rgba(255, 255, 255, .9); transition: transform .2s var(--ease); }
+.lab-fav:hover { transform: scale(1.1); }
+.lab-fav svg, .lab-fav-wide svg, #lab-fav-btn svg { width: 20px; height: 20px; fill: none; stroke: var(--fg); stroke-width: 1.7; stroke-linejoin: round; transition: fill .2s; }
+.lab-fav[aria-pressed="true"] svg, .lab-fav-wide[aria-pressed="true"] svg { fill: var(--fg); }
+.lab-revbadge { position: absolute; z-index: 2; left: 8px; top: calc(100cqw - 34px); padding: 4px 8px; background: var(--fg); color: var(--bg); font: 600 .66rem/1 var(--util); letter-spacing: .06em; pointer-events: none; }
+.lab-kit-add { position: absolute; z-index: 2; left: 10px; top: 10px; padding: 7px 11px; background: var(--fg); color: var(--bg); font: 600 .74rem var(--util); }
+.lab-kit-add.in { background: #fff; color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--fg); }
+
+/* ---------- Caja del kit (oculta por ahora) ---------- */
+.lab-tray { position: fixed; z-index: 45; left: 0; right: 0; bottom: 0; background: var(--bg); border-top: 1.5px solid var(--fg); padding: 12px var(--gutter) calc(12px + env(safe-area-inset-bottom, 0px)); animation: trayIn .4s var(--ease); }
+@keyframes trayIn { from { transform: translateY(100%); } }
+.lab-tray-in { max-width: var(--maxw); margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.lab-tray-txt { display: grid; gap: 2px; font: .8rem var(--util); min-width: 180px; }
+.lab-tray-txt b { font: 800 1.3rem/1 var(--display); font-stretch: 62%; text-transform: uppercase; }
+.lab-slots { display: flex; gap: 6px; flex-wrap: wrap; }
+.lab-slot { position: relative; display: grid; place-items: center; width: 58px; height: 58px; box-sizing: border-box; border: 1.5px dashed var(--line); font: .8rem var(--util); color: var(--muted); }
+.lab-slot.full { border: 0; padding: 4px; background: color-mix(in srgb, var(--liq) 30%, #fff); }
+.lab-slot .pwrap { display: block; width: 100%; height: 100%; }
+.lab-slot i { position: absolute; top: -6px; right: -6px; width: 18px; height: 18px; border-radius: 50%; background: var(--fg); color: var(--bg); font: 700 .7rem/18px var(--util); font-style: normal; opacity: 0; transition: opacity .2s; }
+.lab-slot.full:hover i { opacity: 1; }
+.lab-tray-actions { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.lab-ghost { position: fixed; z-index: 80; pointer-events: none; margin: 0; }
+.has-tray .view { padding-bottom: 220px; }
+
+/* ---------- Ficha: precio por ml, favorito y avisame ---------- */
+.lab-ppm { margin-top: -8px; font: .82rem/1.4 var(--util); color: var(--muted); }
+.lab-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.lab-fav-wide { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; box-shadow: inset 0 0 0 1px var(--line); font: .85rem var(--util); }
+.lab-fav-wide:hover { box-shadow: inset 0 0 0 1.5px var(--fg); }
+
+/* ---------- Ficha: la reseña del canal ---------- */
+.lab-review { display: grid; gap: 10px; padding-top: 16px; border-top: 1.5px solid var(--deep, var(--fg)); }
+.lab-review h2 { font: 800 2rem/1 var(--display); font-stretch: 62%; text-transform: uppercase; }
+.lab-review .link { justify-self: start; }
+.lab-video { display: flex; align-items: center; gap: 12px; padding: 10px; text-decoration: none; background: color-mix(in srgb, var(--liq, #fff) 14%, var(--surface)); transition: background-color .2s; }
+.lab-video:hover { background: color-mix(in srgb, var(--liq, #fff) 30%, var(--surface)); }
+.lab-play { flex: none; position: relative; width: 52px; height: 36px; border-radius: 9px; background: var(--fg); }
+.lab-play::after { content: ""; position: absolute; left: 21px; top: 11px; border-left: 13px solid var(--bg); border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+.lab-video span:last-child { display: grid; gap: 2px; min-width: 0; }
+.lab-video b { font: 600 .88rem/1.3 var(--util); }
+.lab-video em { font: .76rem var(--util); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.lab-videos { display: grid; gap: 8px; }
+.lab-out { font-size: .72rem; color: var(--fg); text-transform: uppercase; letter-spacing: .08em; }
+
+/* ---------- Ventanas: parecidos y test ---------- */
+.sheet .grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 20px 12px; }
+.sheet .card-name { font-size: 1.1rem; }
+.lab-res { display: grid; gap: 10px; padding-top: 10px; }
+.lab-res h3 { font: 800 1.4rem/1 var(--display); font-stretch: 62%; text-transform: uppercase; }
+.lab-steps { font: .75rem var(--util); color: var(--muted); }
+.lab-progress { height: 4px; background: var(--chip); }
+.lab-progress i { display: block; height: 100%; background: var(--fg); transition: width .4s var(--ease); }
+.lab-q { animation: quizIn .45s var(--ease) both; }
+.lab-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; }
+.lab-opt { padding: 16px 18px; box-shadow: inset 0 0 0 1.5px var(--fg); font: 600 .95rem/1.25 var(--util); text-align: left; animation: quizIn .45s var(--ease) both; animation-delay: calc(.05s + var(--i) * .05s); transition: background-color .2s, color .2s, transform .2s var(--ease); }
+.lab-opt:hover { transform: translateY(-2px); }
+.lab-opt[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+@keyframes quizIn { from { opacity: .2; transform: translateX(calc(var(--dir, 1) * 40px)); } }
+
+@media (max-width: 560px) {
+	.sheet .grid, .lab-sec .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.lab-slot { width: 46px; height: 46px; }
+	.lab-tray-actions { margin-left: 0; width: 100%; }
+}
