@@ -21,6 +21,8 @@ a { color: inherit; }
 h1, h2, h3 { text-wrap: balance; margin: 0; }
 p { margin: 0; }
 .sel { user-select: all; font-variant-numeric: tabular-nums; }
+/* Lo oculto queda oculto aunque su estilo diga otra cosa (si no, la ventana del pedido tapa la página y no deja hacer clic) */
+[hidden] { display: none !important; }
 .muted { color: var(--muted); }
 :is(.btn, .chip, .eyebrow, .announce, .search input, .card-brand, .card-meta, .card-price, .badge, .quick, .flabel, .count, .back, .size,
 	.tier-name, .meter-txt, .pdp-line, .pdp-brand, .pdp-tags, .pdp-price, .cat-group, .cat-count, .switcher, .line-info, .total, .progress-txt,
